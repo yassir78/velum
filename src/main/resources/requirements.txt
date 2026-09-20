@@ -1,6 +1,0 @@
-Our loadBalancer should :
-- (Traffic Distribution) Support both layer 4 (TCP/UDP) and layer 7 (HTTP/HTTPS) load balancing.
-- Handle up to 1 million requests per second.
-- ( Health Checking) Automatically detect and route around unhealthy servers.
-- ( Session Persistence) Support Sticky sessions for stateful applications, but it should be configurable.
-- ( SSL Termination) Support SSL termination to offload encryption work from backend servers.
