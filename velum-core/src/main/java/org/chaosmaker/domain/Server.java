@@ -24,6 +24,10 @@ public class Server {
     public boolean isAlive() { return alive.get(); }
     public void setAlive(boolean alive) { this.alive.set(alive); }
 
+    public boolean markDown() {
+        return alive.getAndSet(false);
+    }
+
     public int getActiveConnections() { return activeConnections.get(); }
     public void incrementConnections() { activeConnections.incrementAndGet(); }
     public void decrementConnections() { activeConnections.decrementAndGet(); }
