@@ -1,7 +1,6 @@
 package org.chaosmaker.dispatcher;
 
 import org.chaosmaker.handler.RequestHandler;
-import org.chaosmaker.http.HttpRequest;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

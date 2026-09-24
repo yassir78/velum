@@ -2,9 +2,9 @@ package org.chaosmaker.handler;
 
 import org.chaosmaker.domain.Server;
 import org.chaosmaker.http.exception.ForwardingException;
-import org.chaosmaker.http.HttpForwarder;
-import org.chaosmaker.http.HttpRequest;
-import org.chaosmaker.http.HttpResponse;
+import org.chaosmaker.http.client.HttpForwarder;
+import org.chaosmaker.http.model.HttpRequest;
+import org.chaosmaker.http.model.HttpResponse;
 import org.chaosmaker.routing.NoAvailableServerException;
 import org.chaosmaker.routing.RoutingStrategy;
 

@@ -2,8 +2,8 @@ package org.chaosmaker.dispatcher;
 
 
 import org.chaosmaker.handler.RequestHandler;
-import org.chaosmaker.http.HttpRequest;
-import org.chaosmaker.http.HttpResponse;
+import org.chaosmaker.http.model.HttpRequest;
+import org.chaosmaker.http.model.HttpResponse;
 
 public class Dispatcher {
     private final HandlerMapping handlerMapping;

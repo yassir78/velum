@@ -1,8 +1,8 @@
 package org.chaosmaker.handler;
 
 import org.chaosmaker.domain.ServerPool;
-import org.chaosmaker.http.HttpRequest;
-import org.chaosmaker.http.HttpResponse;
+import org.chaosmaker.http.model.HttpRequest;
+import org.chaosmaker.http.model.HttpResponse;
 
 public class HealthCheckHandler implements RequestHandler{
     public HealthCheckHandler(ServerPool pool) {
@@ -10,6 +10,6 @@ public class HealthCheckHandler implements RequestHandler{
 
     @Override
     public HttpResponse handle(HttpRequest request) {
-        return null;
+        return HttpResponse.internalServerError("hihohoho \n");
     }
 }

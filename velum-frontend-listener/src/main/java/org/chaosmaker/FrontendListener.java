@@ -26,7 +26,7 @@ public class FrontendListener {
 
             while (running) {
                 Socket client = serverSocket.accept();
-                executor.submit(() -> new ClientConnection(client,dispatcher).handle());
+                executor.submit(() -> ClientConnection.of(client, dispatcher).handle());
             }
         }
     }

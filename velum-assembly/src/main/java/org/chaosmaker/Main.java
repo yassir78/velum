@@ -6,7 +6,7 @@ import org.chaosmaker.domain.Server;
 import org.chaosmaker.domain.ServerPool;
 import org.chaosmaker.handler.HealthCheckHandler;
 import org.chaosmaker.handler.ProxyHandler;
-import org.chaosmaker.http.HttpForwarder;
+import org.chaosmaker.http.client.HttpForwarder;
 import org.chaosmaker.routing.RoundRobinRoutingEngine;
 import org.chaosmaker.routing.RoutingStrategy;
 

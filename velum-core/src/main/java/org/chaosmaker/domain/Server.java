@@ -28,7 +28,11 @@ public class Server {
     public void incrementConnections() { activeConnections.incrementAndGet(); }
     public void decrementConnections() { activeConnections.decrementAndGet(); }
 
+    public String getAddress() {
+        return host + ":" + port;
+    }
+
     public URI getUri() {
-        return URI.create("http://" + host + ":" + port);
+        return URI.create("http://" + getAddress());
     }
 }
