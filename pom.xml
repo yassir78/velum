@@ -13,7 +13,6 @@
         <module>velum-routing-engine</module>
         <module>velum-frontend-listener</module>
         <module>velum-assembly</module>
-        <module>velum-transport-egress</module>
     </modules>
 
     <properties>
