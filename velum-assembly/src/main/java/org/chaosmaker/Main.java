@@ -11,20 +11,12 @@ import org.chaosmaker.http.client.HttpForwarder;
 import org.chaosmaker.routing.RoundRobinRoutingEngine;
 import org.chaosmaker.routing.RoutingStrategy;
 
-/*
- - fix forwarder to use socket too
- - clean the code really well using SOLID and design patterns
- - implement health check
- - add configuration
- */
 public class Main {
     private static final int PORT = 9090;
 
     public static void main(String[] args) throws Exception {
 
-        ServerPool pool = new ServerPool();
-        pool.addServer(new Server("httpbin", "httpbin.org", 80));
-
+        ServerPool pool = ServerPool.getInstance();
 
         HealthChecker healthChecker = new HealthChecker(pool);
         healthChecker.start(5);

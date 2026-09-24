@@ -1,6 +1,7 @@
 package org.chaosmaker.domain;
 
 import java.net.URI;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -10,6 +11,7 @@ public class Server {
     private final int port;
     private final AtomicBoolean alive = new AtomicBoolean(true);
     private final AtomicInteger activeConnections = new AtomicInteger(0);
+
 
     public Server(String id, String host, int port) {
         this.id = id;
@@ -38,5 +40,16 @@ public class Server {
 
     public URI getUri() {
         return URI.create("http://" + getAddress());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Server server)) return false;
+        return Objects.equals(id, server.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
