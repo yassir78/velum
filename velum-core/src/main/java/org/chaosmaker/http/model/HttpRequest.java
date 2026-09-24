@@ -6,6 +6,7 @@ public record HttpRequest(
         String method,
         String path,
         HttpProtocol protocol,
-        Map<String, String> headers
+        Map<String, String> headers,
+        String body
 ) {
 }

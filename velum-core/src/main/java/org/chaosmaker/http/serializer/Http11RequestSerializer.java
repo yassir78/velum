@@ -38,6 +38,7 @@ public class Http11RequestSerializer implements HttpRequestSerializer {
 
         message.append(CRLF);
 
+        message.append(request.body());
 
         return message.toString().getBytes(UTF_8);
     }

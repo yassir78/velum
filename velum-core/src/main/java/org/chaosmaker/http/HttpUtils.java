@@ -7,6 +7,7 @@ public final class HttpUtils {
     public static final String SPACE = " ";
     public static final String HEADER_DELIMITER = ":";
     public static final String HEADER_SEPARATOR = HEADER_DELIMITER + SPACE;
+    public static final String EMPTY = "";
 
     private HttpUtils() {
         // Utility class
