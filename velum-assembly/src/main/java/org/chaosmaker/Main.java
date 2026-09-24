@@ -6,6 +6,7 @@ import org.chaosmaker.domain.Server;
 import org.chaosmaker.domain.ServerPool;
 import org.chaosmaker.handler.backends.BackendListHandler;
 import org.chaosmaker.handler.register.BackendRegistrationHandler;
+import org.chaosmaker.handler.register.BackendRegistrationHandler;
 import org.chaosmaker.handler.HealthCheckHandler;
 import org.chaosmaker.handler.ProxyHandler;
 import org.chaosmaker.health_check.HealthChecker;
