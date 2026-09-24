@@ -10,14 +10,14 @@
     <packaging>pom</packaging>
     <modules>
         <module>velum-core</module>
-        <module>velum-routing-engine</module>
         <module>velum-frontend-listener</module>
         <module>velum-assembly</module>
+        <module>velum-transport-egress</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
