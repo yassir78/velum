@@ -4,6 +4,7 @@ import org.chaosmaker.dispatcher.Dispatcher;
 import org.chaosmaker.dispatcher.HandlerMapping;
 import org.chaosmaker.domain.Server;
 import org.chaosmaker.domain.ServerPool;
+import org.chaosmaker.handler.backends.BackendListHandler;
 import org.chaosmaker.handler.register.BackendRegistrationHandler;
 import org.chaosmaker.handler.HealthCheckHandler;
 import org.chaosmaker.handler.ProxyHandler;
@@ -30,6 +31,7 @@ public class Main {
         HandlerMapping handlerMapping = new HandlerMapping();
         handlerMapping.registerRoute("/health", new HealthCheckHandler(pool));
         handlerMapping.registerRoute("/backend", new BackendRegistrationHandler(pool));
+        handlerMapping.registerRoute("/backends", new BackendListHandler(pool));
         handlerMapping.setDefaultHandler(new ProxyHandler(routingEngine, forwarder));
 
         Dispatcher dispatcher = new Dispatcher(handlerMapping);
