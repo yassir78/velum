@@ -11,6 +11,7 @@ import static org.chaosmaker.http.serializer.HttpSerializerUtils.appendHeader;
  * Serializes the status line and headers only. The body is not handled here.
  */
 public class Http11ResponseSerializer implements HttpResponseSerializer {
+    private static final System.Logger LOG = System.getLogger(Http11ResponseSerializer.class.getName());
 
     @Override
     public byte[] serialize(HttpResponse response) {
@@ -22,7 +23,7 @@ public class Http11ResponseSerializer implements HttpResponseSerializer {
 
         head.append(response.body());
 
-        System.out.println(head.toString());
+        LOG.log(System.Logger.Level.DEBUG, () -> "Serialized response:\n" + head);
         return head.toString().getBytes(UTF_8);
     }
 

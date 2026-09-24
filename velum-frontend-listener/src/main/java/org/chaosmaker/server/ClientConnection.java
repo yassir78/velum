@@ -11,7 +11,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import static java.lang.System.Logger.Level.INFO;
+
 public class ClientConnection {
+    private static final System.Logger LOG = System.getLogger(ClientConnection.class.getName());
+
     private final Socket socket;
     private final HttpRequestReader requestReader;
     private final Dispatcher dispatcher;
@@ -35,13 +39,22 @@ public class ClientConnection {
                 InputStream in = socket.getInputStream();
                 OutputStream out = socket.getOutputStream()
         ) {
+            long start = System.nanoTime();
+
             HttpRequest request = requestReader.readRequest(in);
 
             HttpResponse response = dispatcher.dispatch(request);
 
             responseWriter.writeResponse(out, response);
+
+            long elapsedMs = (System.nanoTime() - start) / 1_000_000;
+
+            LOG.log(INFO, "{0} {1} {2} -> {3,number,#} ({4,number,#} ms)",
+                    socket.getRemoteSocketAddress(), request.method(), request.path(),
+                    response.status().code(), elapsedMs);
+
         } catch (IOException e) {
-            System.err.println("Connection error: " + e.getMessage());
+            LOG.log(System.Logger.Level.WARNING, "Connection error from " + socket.getRemoteSocketAddress(), e);
         }
     }
 }

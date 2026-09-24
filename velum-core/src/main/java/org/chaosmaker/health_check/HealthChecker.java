@@ -11,6 +11,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class HealthChecker {
+    private static final System.Logger LOG = System.getLogger(HealthChecker.class.getName());
     private static final int INITIAL_DELAY = 5;
     private final ServerPool serverPool;
     private final ScheduledExecutorService scheduledExecutorService = Executors
@@ -36,10 +37,12 @@ public class HealthChecker {
     private void checkServer(Server server) {
         try (Socket socket = new Socket()) {
             socket.connect(new InetSocketAddress(server.getHost(), server.getPort()), 2000);
-            System.out.println("server is healthy");
+            LOG.log(System.Logger.Level.DEBUG, "Backend {0} ({1}) is healthy", server.getId(), server.getAddress());
         } catch (IOException e) {
-            System.out.println("server is not healthy");
-            server.markDown();
+            if (server.markDown()) {
+                LOG.log(System.Logger.Level.WARNING, "Backend {0} ({1}) marked down: {2}",
+                        server.getId(), server.getAddress(), e.getMessage());
+            }
         }
     }
 
